@@ -1,0 +1,42 @@
+name: Sync cursorAssistant install page
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Branch or tag on asafelobotomy/cursorassistant"
+        required: false
+        default: "master"
+  schedule:
+    # Weekly check for install page updates
+    - cron: "0 12 * * 1"
+  push:
+    paths:
+      - ".github/workflows/sync-cursorassistant-install.yml"
+      - "scripts/sync-cursorassistant-install.sh"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sync install artifacts
+        env:
+          CURSOR_ASSISTANT_REF: ${{ github.event.inputs.ref || 'master' }}
+        run: bash scripts/sync-cursorassistant-install.sh
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if git diff --quiet cursorassistant/install/; then
+            echo "No changes to install page."
+            exit 0
+          fi
+          git add cursorassistant/install/
+          git commit -m "chore: sync cursorAssistant install page from upstream"
+          git push

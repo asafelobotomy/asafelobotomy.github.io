@@ -1,0 +1,17 @@
+{
+  "owner": "asafelobotomy",
+  "siteTitle": "asafelobotomy",
+  "tagline": "Open source tools for Cursor and developer workflows",
+  "projects": [
+    {
+      "id": "cursorassistant",
+      "name": "cursorAssistant",
+      "description": "Lifecycle management for Cursor AI surfaces — agents, skills, rules, and MCP in any workspace.",
+      "repo": "https://github.com/asafelobotomy/cursorassistant",
+      "docs": "/cursorassistant/",
+      "install": "/cursorassistant/install/",
+      "badge": "Cursor",
+      "featured": true
+    }
+  ]
+}
