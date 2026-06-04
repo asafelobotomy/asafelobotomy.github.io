@@ -4,12 +4,19 @@
 from __future__ import annotations
 
 import os
+import re
 import subprocess
 import sys
 from pathlib import Path
 
 SITE_ROOT = Path(__file__).resolve().parents[1]
 INSTALL = SITE_ROOT / "cursorassistant" / "install"
+
+
+def html_has_version(html: str, version: str) -> bool:
+    if version in html:
+        return True
+    return bool(re.search(rf"Version\s*(?:<strong>)?\s*{re.escape(version)}", html, re.I))
 
 
 def main() -> int:
@@ -29,7 +36,7 @@ def main() -> int:
     html = (INSTALL / "index.html").read_text(encoding="utf-8")
     deeplinks = (INSTALL / "deeplinks.json").read_text(encoding="utf-8")
     issues: list[str] = []
-    if f"Version <strong>{version}</strong>" not in html:
+    if not html_has_version(html, version):
         issues.append(f"index.html missing version {version}")
     if f'"version": "{version}"' not in deeplinks:
         issues.append("deeplinks.json version mismatch")
