@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Install and set up cursorAssistant for Cursor — lifecycle management for agents, skills, rules, and MCP." />
+  <title>cursorAssistant — setup &amp; docs</title>
+  <link rel="stylesheet" href="/assets/css/site.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="site-logo" href="/">asafelobotomy</a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/cursorassistant/" aria-current="page">cursorAssistant</a>
+        <a href="https://github.com/asafelobotomy/cursorassistant" rel="noopener">Repository</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="prose">
+    <h1>cursorAssistant</h1>
+    <p>
+      Lifecycle management for <strong>Cursor</strong> AI surfaces in any workspace:
+      managed installs, lockfile drift detection, profiles and packs, and specialist routing
+      via <code>.cursor/</code> and <code>AGENTS.md</code>.
+    </p>
+
+    <div class="callout">
+      <p>
+        <strong>Quick start:</strong> open the setup page and click
+        <strong>Install in Cursor</strong>. That bootstraps the global package and MCP only —
+        the project interview runs inside Cursor after you reload the window.
+      </p>
+      <p style="margin-bottom: 0;">
+        <a class="btn btn--primary" href="/cursorassistant/install/">Open setup page</a>
+      </p>
+    </div>
+
+    <h2>Setup flow</h2>
+    <ol class="steps">
+      <li>
+        <strong>Install in Cursor</strong>
+        On the <a href="/cursorassistant/install/">setup page</a>, approve the MCP install dialog.
+        The server uses a pinned git tag (review the command in Cursor before confirming).
+      </li>
+      <li>
+        <strong>Open your project</strong>
+        File → Open Folder for the workspace you want to configure.
+      </li>
+      <li>
+        <strong>Reload Window</strong>
+        Developer → Reload Window so plugin skills and commands load.
+      </li>
+      <li>
+        <strong>Run the interview</strong>
+        In chat: <em>Set up cursorAssistant in this workspace</em>,
+        <code>/cursor-assistant:setup-workspace</code>, or MCP tool
+        <code>lifecycle_configure</code>. This writes <code>.cursor/</code> and the lockfile.
+      </li>
+    </ol>
+
+    <h2>Terminal install</h2>
+    <p>Full bootstrap plus interview in one step:</p>
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/asafelobotomy/cursorassistant/v0.12.0/scripts/install-from-github.sh | bash -s -- .</code></pre>
+    <p>Bootstrap only (complete setup in Cursor afterward):</p>
+    <pre><code>curl -fsSL https://raw.githubusercontent.com/asafelobotomy/cursorassistant/v0.12.0/scripts/bootstrap-from-github.sh | bash</code></pre>
+
+    <h2>Requirements</h2>
+    <ul>
+      <li>Python 3.10+, git, <a href="https://cursor.com/">Cursor</a></li>
+      <li><code>uvx</code> when using MCP (<code>pip install "mcp[cli]"</code>)</li>
+    </ul>
+
+    <h2>Documentation</h2>
+    <ul>
+      <li><a href="https://github.com/asafelobotomy/cursorassistant/blob/master/INSTALL.md">INSTALL.md</a></li>
+      <li><a href="https://github.com/asafelobotomy/cursorassistant/blob/master/docs/CURSOR_INSTALL_UX.md">Install UX flow</a></li>
+      <li><a href="https://github.com/asafelobotomy/cursorassistant/blob/master/docs/ARCHITECTURE.md">Architecture</a></li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p>
+      <a href="/">Home</a> ·
+      <a href="/cursorassistant/install/">Setup page</a> ·
+      <a href="https://github.com/asafelobotomy/cursorassistant">Source on GitHub</a>
+    </p>
+  </footer>
+</body>
+</html>
