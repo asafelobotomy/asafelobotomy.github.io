@@ -13,7 +13,14 @@ REPO = "asafelobotomy/cursorassistant"
 REPO_GIT = f"https://github.com/{REPO}.git"
 SITE_ROOT = Path(__file__).resolve().parents[1]
 INSTALL_DIR = SITE_ROOT / "cursorassistant" / "install"
-TEMPLATE = INSTALL_DIR / "index.template.html"
+
+
+def template_path(package_root: Path) -> Path:
+    """Template lives in cursorassistant package; github.io only stores generated output."""
+    path = package_root / "install" / "index.template.html"
+    if not path.is_file():
+        raise SystemExit(f"Missing template in package: {path}")
+    return path
 
 
 def read_version(package_root: Path) -> str:
@@ -114,10 +121,7 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    if not TEMPLATE.is_file():
-        raise SystemExit(f"Missing template: {TEMPLATE}")
-
-    html = TEMPLATE.read_text(encoding="utf-8")
+    html = template_path(package_root).read_text(encoding="utf-8")
     for key, value in (
         ("@@VERSION@@", version),
         ("@@REPO@@", REPO),

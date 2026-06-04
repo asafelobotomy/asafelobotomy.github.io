@@ -7,17 +7,18 @@ on:
         description: "Branch or tag on asafelobotomy/cursorassistant"
         required: false
         default: "master"
+  repository_dispatch:
+    types: [cursorassistant-updated]
   schedule:
-    # Weekly check for install page updates
     - cron: "0 12 * * 1"
   push:
     paths:
       - ".github/workflows/sync-cursorassistant-install.yml"
       - "scripts/**"
-      - "cursorassistant/install/index.template.html"
 
 permissions:
   contents: write
+  pull-requests: write
 
 jobs:
   sync:
@@ -25,28 +26,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generate install page from upstream VERSION
+      - name: Generate install page from upstream
         env:
-          CURSOR_ASSISTANT_REF: ${{ github.event.inputs.ref || 'master' }}
+          CURSOR_ASSISTANT_REF: ${{ github.event.inputs.ref || github.event.client_payload.ref || 'master' }}
         run: bash scripts/sync-cursorassistant-install.sh
 
       - name: Verify generated artifacts
         env:
-          CURSOR_ASSISTANT_REF: ${{ github.event.inputs.ref || 'master' }}
+          CURSOR_ASSISTANT_REF: ${{ github.event.inputs.ref || github.event.client_payload.ref || 'master' }}
         run: |
           TMP="$(mktemp -d)"
           git clone --depth 1 --branch "$CURSOR_ASSISTANT_REF" https://github.com/asafelobotomy/cursorassistant.git "$TMP/repo"
           export CURSOR_ASSISTANT_PACKAGE_ROOT="$TMP/repo"
           python3 scripts/check_cursorassistant_install.py
 
-      - name: Commit if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          if git diff --quiet cursorassistant/install/; then
-            echo "No changes to install page."
-            exit 0
-          fi
-          git add cursorassistant/install/
-          git commit -m "chore: sync cursorAssistant install page from upstream"
-          git push
+      - name: Open PR (squash-merge)
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: sync cursorAssistant install page from upstream"
+          title: "chore: sync cursorAssistant install page"
+          body: |
+            Regenerated from [cursorassistant](https://github.com/asafelobotomy/cursorassistant) @ `${{ github.event.inputs.ref || github.event.client_payload.ref || 'master' }}`.
+          branch: sync/cursorassistant-install-${{ github.run_id }}
+          delete-branch: true

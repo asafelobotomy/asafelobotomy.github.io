@@ -31,8 +31,8 @@ No Jekyll build is required: `.nojekyll` at the repo root disables Jekyll proces
 
 The MCP setup page under `cursorassistant/install/` is **generated in this repo** from:
 
-- Template: `cursorassistant/install/index.template.html` (edit UX here)
-- Upstream: [asafelobotomy/cursorassistant](https://github.com/asafelobotomy/cursorassistant) `VERSION` + `template/setup/catalog.json`
+- Template: [cursorassistant/install/index.template.html](https://github.com/asafelobotomy/cursorassistant/blob/master/install/index.template.html) (edit in **cursorassistant** repo)
+- Generated here: `cursorassistant/install/index.html`, `deeplinks.json`
 
 **Locally:**
 
