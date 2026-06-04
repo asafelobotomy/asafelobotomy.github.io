@@ -13,7 +13,8 @@ on:
   push:
     paths:
       - ".github/workflows/sync-cursorassistant-install.yml"
-      - "scripts/sync-cursorassistant-install.sh"
+      - "scripts/**"
+      - "cursorassistant/install/index.template.html"
 
 permissions:
   contents: write
@@ -24,10 +25,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Sync install artifacts
+      - name: Generate install page from upstream VERSION
         env:
           CURSOR_ASSISTANT_REF: ${{ github.event.inputs.ref || 'master' }}
         run: bash scripts/sync-cursorassistant-install.sh
+
+      - name: Verify generated artifacts
+        env:
+          CURSOR_ASSISTANT_REF: ${{ github.event.inputs.ref || 'master' }}
+        run: |
+          TMP="$(mktemp -d)"
+          git clone --depth 1 --branch "$CURSOR_ASSISTANT_REF" https://github.com/asafelobotomy/cursorassistant.git "$TMP/repo"
+          export CURSOR_ASSISTANT_PACKAGE_ROOT="$TMP/repo"
+          python3 scripts/check_cursorassistant_install.py
 
       - name: Commit if changed
         run: |

@@ -29,7 +29,10 @@ No Jekyll build is required: `.nojekyll` at the repo root disables Jekyll proces
 
 ## Keep cursorAssistant install page in sync
 
-The MCP setup page under `cursorassistant/install/` is copied from [asafelobotomy/cursorassistant](https://github.com/asafelobotomy/cursorassistant).
+The MCP setup page under `cursorassistant/install/` is **generated in this repo** from:
+
+- Template: `cursorassistant/install/index.template.html` (edit UX here)
+- Upstream: [asafelobotomy/cursorassistant](https://github.com/asafelobotomy/cursorassistant) `VERSION` + `template/setup/catalog.json`
 
 **Locally:**
 
@@ -37,9 +40,9 @@ The MCP setup page under `cursorassistant/install/` is copied from [asafelobotom
 bash scripts/sync-cursorassistant-install.sh
 ```
 
-**CI:** [.github/workflows/sync-cursorassistant-install.yml](.github/workflows/sync-cursorassistant-install.yml) runs weekly (and on demand) to pull the latest `install/index.html` from upstream.
+**CI:** [.github/workflows/sync-cursorassistant-install.yml](.github/workflows/sync-cursorassistant-install.yml) runs weekly (and on demand).
 
-After changing install UX in the cursorAssistant repo, run `python3 scripts/generate_install_page.py` there, push, then sync this repo (or wait for the workflow).
+See [docs/INSTALL_WEBSITE.md](docs/INSTALL_WEBSITE.md).
 
 ## Structure
 
@@ -50,9 +53,12 @@ assets/css/site.css        # Shared styles
 assets/js/site.js          # Homepage project cards
 cursorassistant/
   index.html               # Project overview & setup instructions
-  install/                 # Generated install page (synced from upstream)
+  install/                 # Generated install page (template + deeplinks)
 scripts/
+  generate_cursorassistant_install.py
   sync-cursorassistant-install.sh
+docs/
+  INSTALL_WEBSITE.md
 ```
 
 ## License
