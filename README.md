@@ -1,5 +1,7 @@
 # asafelobotomy.github.io
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/U5R225QZH3)
+
 Personal developer site hosted on [GitHub Pages](https://asafelobotomy.github.io/).
 
 ## Live URLs
