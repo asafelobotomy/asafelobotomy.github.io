@@ -1,51 +1,53 @@
 /**
- * Load projects.json and render project cards on the homepage.
- * Other pages can include this script with data-render="projects".
+ * Progressive enhancements for the generated pages (they work without it):
+ * category filter on the homepage, install tabs and copy buttons on app pages,
+ * and hauler's segment map illustration.
  */
 (function () {
-  const grid = document.querySelector("[data-projects-grid]");
-  if (!grid) return;
-
-  fetch("/projects.json")
-    .then((r) => {
-      if (!r.ok) throw new Error("Failed to load projects");
-      return r.json();
+  const filters = document.querySelectorAll("[data-filter]");
+  filters.forEach((chip) =>
+    chip.addEventListener("click", () => {
+      filters.forEach((c) => c.setAttribute("aria-pressed", String(c === chip)));
+      document.querySelectorAll("[data-cat]").forEach((card) => {
+        card.hidden = !(chip.dataset.filter === "all" || card.dataset.cat === chip.dataset.filter);
+      });
     })
-    .then((data) => {
-      const tagline = document.querySelector("[data-site-tagline]");
-      if (tagline && data.tagline) tagline.textContent = data.tagline;
+  );
 
-      const projects = (data.projects || []).filter((p) => p.featured !== false);
-      grid.innerHTML = projects
-        .map(
-          (p) => `
-        <li class="project-card">
-          <h2>
-            <a href="${p.docs || p.repo}">${escapeHtml(p.name)}</a>
-            ${p.badge ? `<span class="badge">${escapeHtml(p.badge)}</span>` : ""}
-          </h2>
-          <p>${escapeHtml(p.description || "")}</p>
-          <div class="project-card__actions">
-            ${
-              p.install
-                ? `<a class="btn btn--primary" href="${p.install}">Set up</a>`
-                : ""
-            }
-            <a class="btn btn--secondary" href="${p.docs || p.repo}">Overview</a>
-            <a class="btn btn--secondary" href="${p.repo}" rel="noopener">GitHub</a>
-          </div>
-        </li>`
-        )
-        .join("");
-    })
-    .catch(() => {
-      grid.innerHTML =
-        '<li class="project-card"><p>Could not load projects. See <a href="https://github.com/asafelobotomy">GitHub</a>.</p></li>';
+  document.querySelectorAll("[data-tabs]").forEach((group) => {
+    const tabs = group.querySelectorAll("[role=tab]");
+    const panels = group.querySelectorAll("[role=tabpanel]");
+    const show = (i) => {
+      tabs.forEach((t, j) => t.setAttribute("aria-selected", String(i === j)));
+      panels.forEach((p, j) => (p.hidden = i !== j));
+    };
+    tabs.forEach((t, i) => t.addEventListener("click", () => show(i)));
+    group.querySelector(".tabs").hidden = false;
+    show(0);
+  });
+
+  document.querySelectorAll(".codebox").forEach((box) => {
+    const pre = box.querySelector("pre");
+    const btn = document.createElement("button");
+    btn.className = "copy";
+    btn.type = "button";
+    btn.textContent = "Copy";
+    btn.addEventListener("click", () => {
+      const done = () => {
+        btn.textContent = "Copied";
+        setTimeout(() => (btn.textContent = "Copy"), 1400);
+      };
+      if (!navigator.clipboard) return getSelection().selectAllChildren(pre);
+      navigator.clipboard.writeText(pre.textContent).then(done, () => getSelection().selectAllChildren(pre));
     });
+    box.prepend(btn);
+  });
 
-  function escapeHtml(s) {
-    const d = document.createElement("div");
-    d.textContent = s;
-    return d.innerHTML;
+  // 8 connections, each filling its own slice of 32 blocks
+  const map = document.getElementById("segmap");
+  if (map) {
+    map.innerHTML = Array.from({ length: 32 }, (_, i) =>
+      `<i class="${i % 4 === 0 ? "f" : i % 4 < 2 + (i % 3) ? "d" : ""}"></i>`
+    ).join("");
   }
 })();

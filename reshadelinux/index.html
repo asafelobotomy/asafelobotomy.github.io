@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>ReShadeLinux · aSafeLobotomy</title>
+  <meta name="description" content="Install the official ReShade runtime for Wine and Proton games.">
+  <link rel="canonical" href="https://asafelobotomy.github.io/reshadelinux/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ReShadeLinux · aSafeLobotomy">
+  <meta property="og:description" content="Install the official ReShade runtime for Wine and Proton games.">
+  <meta property="og:url" content="https://asafelobotomy.github.io/reshadelinux/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Syne:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+  <a class="logo" href="/">a<i>safe</i>lobotomy</a>
+  <nav class="main" aria-label="Primary">
+    <a href="/#apps">Apps</a>
+    <a href="/#shipping">Releases</a>
+    <a href="/#support">Support</a>
+    <a href="https://github.com/asafelobotomy">GitHub</a>
+  </nav>
+  <a class="btn btn-kofi btn-sm" href="https://ko-fi.com/U5R225QZH3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M10 11.5c-.8-.9-2.4-.4-2.4.9 0 1.1 2.4 2.6 2.4 2.6s2.4-1.5 2.4-2.6c0-1.3-1.6-1.8-2.4-.9Z" fill="currentColor"/></svg>Ko-fi</a>
+</div></header>
+<main id="main">
+<div class="app-head"><div class="wrap">
+  <div class="crumb"><a href="/#apps">Apps</a> / Games &amp; ROMs</div>
+  <div class="app-title"><img src="/assets/img/reshadelinux.webp" alt="" loading="lazy" class=""><div><h1>ReShadeLinux</h1><p class="tl">Install the official ReShade runtime for Wine and Proton games.</p></div></div>
+  <div class="ctas"><a class="btn btn-primary" href="https://github.com/asafelobotomy/reshadelinux/releases/latest"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 21h16"/></svg>Download v1.4.1</a><a class="btn btn-ghost" href="https://github.com/asafelobotomy/reshadelinux"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.6 22.4c.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.4 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0C17.3 4.8 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.5 11.5 0 0 0 12 .5Z"/></svg>Source on GitHub</a><a class="btn btn-kofi btn-ghost" href="https://ko-fi.com/U5R225QZH3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M10 11.5c-.8-.9-2.4-.4-2.4.9 0 1.1 2.4 2.6 2.4 2.6s2.4-1.5 2.4-2.6c0-1.3-1.6-1.8-2.4-.9Z" fill="currentColor"/></svg>Support</a></div>
+</div></div>
+<div class="wrap app-body">
+  <div class="doc">
+    <section><h2>What it does</h2><p>ReShadeLinux finds your Steam games, picks the right ReShade hook DLL by reading each executable&#x27;s imports, and keeps per-game shader choices. ReShade itself is by crosire and its contributors; this project continues kevinlekiller&#x27;s reshade-steam-proton installer flow.</p></section>
+    
+    <section><h2>Screenshots</h2><div class="noshot"><b>Screenshots coming soon.</b> Until then, the README on GitHub has the full tour.</div></section>
+    <section><h2>Features</h2><div class="features"><div><b>Steam detection</b><span>Scans every Steam library and reads appinfo.vdf for the real launch executable.</span></div><div><b>DLL selection</b><span>PE import analysis picks dxgi, d3d9, opengl32, ddraw or dinput8.</span></div><div><b>Per-game state</b><span>Remembers DLL, architecture, path and shaders per game.</span></div><div><b>GUI or CLI</b><span>yad dialogs, falling back to whiptail, dialog, then plain prompts.</span></div></div></section>
+    <section data-tabs><h2>Install</h2>
+      <div class="tabs" role="tablist" hidden><button role="tab" type="button" aria-selected="true">AppImage</button><button role="tab" type="button" aria-selected="false">From source</button></div>
+      <div role="tabpanel"><p class="eyebrow" style="margin:.4rem 0">AppImage</p><div class="codebox"><pre>chmod +x reshadelinux-*-x86_64.AppImage
+./reshadelinux-*-x86_64.AppImage</pre></div></div><div role="tabpanel"><p class="eyebrow" style="margin:.4rem 0">From source</p><div class="codebox"><pre>git clone https://github.com/asafelobotomy/reshadelinux.git
+cd reshadelinux
+./reshadelinux.sh</pre></div></div>
+      <p class="inst-note">Needs 7z, git, curl, file and python3 on the host. Install yad for the graphical flow.</p>
+    </section>
+    
+    
+    <section><h2>Documentation</h2><div class="doclinks">
+      <a href="https://github.com/asafelobotomy/reshadelinux#readme">README<small>full reference</small></a><a href="https://github.com/asafelobotomy/reshadelinux/blob/main/CHANGELOG.md">Changelog<small>CHANGELOG.md</small></a><a href="https://github.com/asafelobotomy/reshadelinux/issues">Issues<small>bugs &amp; ideas</small></a>
+    </div></section>
+  </div>
+  <aside class="side">
+    <div class="factbox"><dl>
+      <dt>Version</dt><dd>v1.4.1</dd><dt>Released</dt><dd>24 Oct 2026</dd>
+      <dt>Built with</dt><dd>Shell</dd>
+      <dt>Licence</dt><dd>GPL-2.0</dd>
+      <dt>Runs on</dt><dd>AppImage, Source</dd>
+    </dl></div>
+    <div class="kofi-card"><p>Free and open source. If ReShadeLinux helps you, a coffee helps the next release.</p><a class="btn btn-kofi " href="https://ko-fi.com/U5R225QZH3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M10 11.5c-.8-.9-2.4-.4-2.4.9 0 1.1 2.4 2.6 2.4 2.6s2.4-1.5 2.4-2.6c0-1.3-1.6-1.8-2.4-.9Z" fill="currentColor"/></svg>Support on Ko-fi</a></div>
+    <div><p class="eyebrow" style="margin-bottom:.7rem">Also in Games &amp; ROMs</p><div class="related"><a href="/romforge/"><img src="/assets/img/romforge.webp" alt="" loading="lazy" class="">romforge</a></div></div>
+  </aside>
+</div>
+</main>
+<footer class="site"><div class="wrap">
+  <span>Made by <a href="https://github.com/asafelobotomy">@asafelobotomy</a>. Apps are open source under their own licences.</span>
+  <span><a href="https://ko-fi.com/U5R225QZH3">Ko-fi</a> · <a href="https://github.com/asafelobotomy?tab=repositories">All repositories</a></span>
+</div></footer>
+</body>
+</html>

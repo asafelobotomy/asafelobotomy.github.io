@@ -1,47 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Open source projects by asafelobotomy — Cursor tooling and developer workflows." />
-  <title>asafelobotomy — developer projects</title>
-  <link rel="stylesheet" href="/assets/css/site.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>aSafeLobotomy Apps</title>
+  <meta name="description" content="Linux-first desktop apps, CLIs and daemons by aSafeLobotomy: ROM libraries, downloads, security, swap, scheduling, emoji and more.">
+  <link rel="canonical" href="https://asafelobotomy.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="aSafeLobotomy Apps">
+  <meta property="og:description" content="Linux-first desktop apps, CLIs and daemons by aSafeLobotomy: ROM libraries, downloads, security, swap, scheduling, emoji and more.">
+  <meta property="og:url" content="https://asafelobotomy.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&family=Syne:wght@600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <script src="/assets/js/site.js" defer></script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-header__inner">
-      <a class="site-logo" href="/">asafelobotomy</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="/" aria-current="page">Home</a>
-        <a href="/cursorassistant/">cursorAssistant</a>
-        <a href="https://github.com/asafelobotomy" rel="noopener">GitHub</a>
-      </nav>
-    </div>
-  </header>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+  <a class="logo" href="/">a<i>safe</i>lobotomy</a>
+  <nav class="main" aria-label="Primary">
+    <a href="/#apps">Apps</a>
+    <a href="/#shipping">Releases</a>
+    <a href="/#support">Support</a>
+    <a href="https://github.com/asafelobotomy">GitHub</a>
+  </nav>
+  <a class="btn btn-kofi btn-sm" href="https://ko-fi.com/U5R225QZH3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M10 11.5c-.8-.9-2.4-.4-2.4.9 0 1.1 2.4 2.6 2.4 2.6s2.4-1.5 2.4-2.6c0-1.3-1.6-1.8-2.4-.9Z" fill="currentColor"/></svg>Ko-fi</a>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap">
+  <div>
+    <p class="eyebrow">aSafeLobotomy · Linux-first open source</p>
+    <h1 style="margin-top:.9rem">I make things from my brain come <span class="safe">to life.</span></h1>
+    <p class="lede"><strong>Desktop apps, CLIs and daemons</strong> for the stuff I actually use: ROM libraries, downloads, antivirus, swap, CPU scheduling, emoji, and my TV.</p>
+    <div class="ctas"><a class="btn btn-primary" href="#apps">Browse the apps</a><a class="btn btn-kofi btn-ghost" href="https://ko-fi.com/U5R225QZH3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M10 11.5c-.8-.9-2.4-.4-2.4.9 0 1.1 2.4 2.6 2.4 2.6s2.4-1.5 2.4-2.6c0-1.3-1.6-1.8-2.4-.9Z" fill="currentColor"/></svg>Buy me a coffee</a></div>
+    <p class="facts"><span><b>12</b> active apps</span><span><b>11</b> with releases</span><span>Rust · Python · Kotlin · TS</span></p>
+  </div>
+  <div class="tickets"><p class="eyebrow">Now shipping</p><a class="ticket" href="/buckler/"><span class="glyph " aria-hidden="true">B</span><div style="min-width:0"><div class="t-name">Buckler</div><div class="t-sub">Debloat and relaunch your NVIDIA SHIELD TV Pro, safely.</div></div><div class="t-ver">v0.21.0<small>30 Oct</small></div></a><a class="ticket" href="/romforge/"><img src="/assets/img/romforge.webp" alt="" loading="lazy" class=""><div style="min-width:0"><div class="t-name">romforge</div><div class="t-sub">Identify, tidy, enrich and play your ROM collection, from the desk or the sofa.</div></div><div class="t-ver">v0.15.0<small>25 Oct</small></div></a><a class="ticket" href="/hauler/"><span class="glyph " aria-hidden="true">H</span><div style="min-width:0"><div class="t-name">hauler</div><div class="t-sub">Fast, resumable downloads over parallel connections. Linux first.</div></div><div class="t-ver">v0.1.2<small>24 Oct</small></div></a><a class="ticket" href="/reshadelinux/"><img src="/assets/img/reshadelinux.webp" alt="" loading="lazy" class=""><div style="min-width:0"><div class="t-name">ReShadeLinux</div><div class="t-sub">Install the official ReShade runtime for Wine and Proton games.</div></div><div class="t-ver">v1.4.1<small>24 Oct</small></div></a></div>
+</div></section>
 
-  <main>
-    <section class="hero">
-      <h1>Developer projects</h1>
-      <p class="lead" data-site-tagline>Loading…</p>
-    </section>
+<section class="block" id="apps"><div class="wrap">
+  <div class="sec-head"><div><h2>Apps</h2><p>Every active project, each with its own page: screenshots, install steps and docs.</p></div>
+    <div class="chips" role="group" aria-label="Filter by category">
+      <button class="chip" type="button" aria-pressed="true" data-filter="all">All</button><button class="chip" type="button" aria-pressed="false" data-filter="games">Games &amp; ROMs</button><button class="chip" type="button" aria-pressed="false" data-filter="media">Downloads &amp; media</button><button class="chip" type="button" aria-pressed="false" data-filter="system">System &amp; security</button><button class="chip" type="button" aria-pressed="false" data-filter="everyday">Everyday tools</button>
+    </div></div>
+  <div class="grid"><a class="card" href="/romforge/" data-cat="games">
+      <div class="top"><img src="/assets/img/romforge.webp" alt="" loading="lazy" class=""><div><h3>romforge</h3><div class="cat">Games &amp; ROMs</div></div></div>
+      <p>Identify, tidy, enrich and play your ROM collection, from the desk or the sofa.</p>
+      <div class="meta"><span class="state rel">v0.15.0</span><span class="tag">Rust · Tauri</span></div>
+    </a><a class="card" href="/oysterav/" data-cat="system">
+      <div class="top"><img src="/assets/img/oysterav.webp" alt="" loading="lazy" class=""><div><h3>oysterAV</h3><div class="cat">System &amp; security</div></div></div>
+      <p>One calm GUI over ClamAV, rkhunter, Lynis and friends.</p>
+      <div class="meta"><span class="state rel">v0.2.2</span><span class="tag">Python · GTK4</span></div>
+    </a><a class="card" href="/emobie/" data-cat="everyday">
+      <div class="top"><img src="/assets/img/emobie.webp" alt="" loading="lazy" class=""><div><h3>emobie</h3><div class="cat">Everyday tools</div></div></div>
+      <p>A compact emoji palette for content creators. Summon, search, copy, done.</p>
+      <div class="meta"><span class="state rel">v0.8.2</span><span class="tag">Rust · Tauri + React</span></div>
+    </a><a class="card" href="/hauler/" data-cat="media">
+      <div class="top"><span class="glyph " aria-hidden="true">H</span><div><h3>hauler</h3><div class="cat">Downloads &amp; media</div></div></div>
+      <p>Fast, resumable downloads over parallel connections. Linux first.</p>
+      <div class="meta"><span class="state rel">v0.1.2</span><span class="tag">Rust · Kirigami</span></div>
+    </a><a class="card" href="/reshadelinux/" data-cat="games">
+      <div class="top"><img src="/assets/img/reshadelinux.webp" alt="" loading="lazy" class=""><div><h3>ReShadeLinux</h3><div class="cat">Games &amp; ROMs</div></div></div>
+      <p>Install the official ReShade runtime for Wine and Proton games.</p>
+      <div class="meta"><span class="state rel">v1.4.1</span><span class="tag">Shell</span><span class="tag">★ 20</span></div>
+    </a><a class="card" href="/av-morning-star/" data-cat="media">
+      <div class="top"><img src="/assets/img/av-morning-star.webp" alt="" loading="lazy" class=""><div><h3>AV Morning Star</h3><div class="cat">Downloads &amp; media</div></div></div>
+      <p>Download video and audio from YouTube, Odysee and 1000+ sites.</p>
+      <div class="meta"><span class="state rel">v0.4.2</span><span class="tag">Python · PyQt5</span></div>
+    </a><a class="card" href="/xzram/" data-cat="system">
+      <div class="top"><img src="/assets/img/xzram.webp" alt="" loading="lazy" class=""><div><h3>XZram</h3><div class="cat">System &amp; security</div></div></div>
+      <p>Cross-distro swap management: zram, swap files, partitions and sysctl tuning.</p>
+      <div class="meta"><span class="state rel">v0.4.3</span><span class="tag">Rust · Qt6</span></div>
+    </a><a class="card" href="/scdr/" data-cat="system">
+      <div class="top"><span class="glyph " aria-hidden="true">S</span><div><h3>SCDR</h3><div class="cat">System &amp; security</div></div></div>
+      <p>Process scheduling and priority daemon for EEVDF and sched_ext kernels.</p>
+      <div class="meta"><span class="state dev">in development</span><span class="tag">Rust</span></div>
+    </a><a class="card" href="/buckler/" data-cat="everyday">
+      <div class="top"><span class="glyph " aria-hidden="true">B</span><div><h3>Buckler</h3><div class="cat">Everyday tools</div></div></div>
+      <p>Debloat and relaunch your NVIDIA SHIELD TV Pro, safely.</p>
+      <div class="meta"><span class="state rel">v0.21.0</span><span class="tag">Kotlin · Python</span></div>
+    </a><a class="card" href="/readit/" data-cat="everyday">
+      <div class="top"><img src="/assets/img/readit.webp" alt="" loading="lazy" class=""><div><h3>readit</h3><div class="cat">Everyday tools</div></div></div>
+      <p>Profile-first extension for New Reddit: for readers, creators and moderators.</p>
+      <div class="meta"><span class="state rel">v0.2.4</span><span class="tag">TypeScript · WXT</span></div>
+    </a><a class="card" href="/qbit-plugin-dl/" data-cat="media">
+      <div class="top"><img src="/assets/img/qbit-plugin-dl.webp" alt="" loading="lazy" class=""><div><h3>qbit Plugin Manager</h3><div class="cat">Downloads &amp; media</div></div></div>
+      <p>Pick and install qBittorrent search plugins from allowlisted catalogs.</p>
+      <div class="meta"><span class="state rel">v0.2.1</span><span class="tag">Python · Qt</span></div>
+    </a><a class="card" href="/sonicsound/" data-cat="media">
+      <div class="top"><img src="/assets/img/sonicsound.webp" alt="" loading="lazy" class=""><div><h3>SonicSound</h3><div class="cat">Downloads &amp; media</div></div></div>
+      <p>Album-centred music client for Navidrome, Airsonic and other Subsonic servers.</p>
+      <div class="meta"><span class="state rel">v0.2.4</span><span class="tag">Kotlin · React</span></div>
+    </a></div>
+</div></section>
 
-    <section aria-labelledby="projects-heading">
-      <h2 id="projects-heading" class="section-title">Projects</h2>
-      <ul class="project-grid" data-projects-grid>
-        <li class="project-card">
-          <p>Loading projects…</p>
-        </li>
-      </ul>
-    </section>
-  </main>
+<section class="block" id="shipping"><div class="wrap">
+  <div class="sec-head"><div><h2>Release log</h2><p>Latest tagged release of each app, newest first.</p></div></div>
+  <div class="log"><a href="/buckler/"><span class="l-date">30 Oct 2026</span><span><span class="l-name">Buckler</span> <span class="l-ver">v0.21.0</span></span><span class="l-what">Debloat and relaunch your NVIDIA SHIELD TV Pro, safely.</span></a><a href="/romforge/"><span class="l-date">25 Oct 2026</span><span><span class="l-name">romforge</span> <span class="l-ver">v0.15.0</span></span><span class="l-what">Identify, tidy, enrich and play your ROM collection, from the desk or the sofa.</span></a><a href="/hauler/"><span class="l-date">24 Oct 2026</span><span><span class="l-name">hauler</span> <span class="l-ver">v0.1.2</span></span><span class="l-what">Fast, resumable downloads over parallel connections. Linux first.</span></a><a href="/reshadelinux/"><span class="l-date">24 Oct 2026</span><span><span class="l-name">ReShadeLinux</span> <span class="l-ver">v1.4.1</span></span><span class="l-what">Install the official ReShade runtime for Wine and Proton games.</span></a><a href="/xzram/"><span class="l-date">14 Oct 2026</span><span><span class="l-name">XZram</span> <span class="l-ver">v0.4.3</span></span><span class="l-what">Cross-distro swap management: zram, swap files, partitions and sysctl tuning.</span></a><a href="/qbit-plugin-dl/"><span class="l-date">11 Oct 2026</span><span><span class="l-name">qbit Plugin Manager</span> <span class="l-ver">v0.2.1</span></span><span class="l-what">Pick and install qBittorrent search plugins from allowlisted catalogs.</span></a><a href="/emobie/"><span class="l-date">10 Oct 2026</span><span><span class="l-name">emobie</span> <span class="l-ver">v0.8.2</span></span><span class="l-what">A compact emoji palette for content creators. Summon, search, copy, done.</span></a><a href="/av-morning-star/"><span class="l-date">2 Oct 2026</span><span><span class="l-name">AV Morning Star</span> <span class="l-ver">v0.4.2</span></span><span class="l-what">Download video and audio from YouTube, Odysee and 1000+ sites.</span></a><a href="/readit/"><span class="l-date">2 Oct 2026</span><span><span class="l-name">readit</span> <span class="l-ver">v0.2.4</span></span><span class="l-what">Profile-first extension for New Reddit: for readers, creators and moderators.</span></a><a href="/sonicsound/"><span class="l-date">25 Aug 2026</span><span><span class="l-name">SonicSound</span> <span class="l-ver">v0.2.4</span></span><span class="l-what">Album-centred music client for Navidrome, Airsonic and other Subsonic servers.</span></a><a href="/oysterav/"><span class="l-date">27 Jul 2026</span><span><span class="l-name">oysterAV</span> <span class="l-ver">v0.2.2</span></span><span class="l-what">One calm GUI over ClamAV, rkhunter, Lynis and friends.</span></a></div>
+</div></section>
 
-  <footer class="site-footer">
-    <p>
-      <a href="https://github.com/asafelobotomy">@asafelobotomy</a> on GitHub ·
-      MIT open source
-    </p>
-  </footer>
+<section class="block" id="support"><div class="wrap">
+  <div class="support">
+    <div><p class="eyebrow" style="color:inherit;opacity:.7">Support</p><h2 style="margin-top:.6rem">Keep the brain fed.</h2>
+      <p>Everything here is free and open source, made in spare hours. If an app saved you time, a coffee on Ko-fi keeps the next release coming.</p>
+      <a class="btn btn-primary" href="https://ko-fi.com/U5R225QZH3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 8h1a4 4 0 0 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><path d="M10 11.5c-.8-.9-2.4-.4-2.4.9 0 1.1 2.4 2.6 2.4 2.6s2.4-1.5 2.4-2.6c0-1.3-1.6-1.8-2.4-.9Z" fill="currentColor"/></svg>Support on Ko-fi</a></div>
+    <ul>
+      <li><b>★</b><span>Star the repos you use. It helps other people find them.</span></li>
+      <li><b>!</b><span>File bugs and ideas on each app's GitHub issues.</span></li>
+      <li><b>↗</b><span>Share an app page with someone who'd like it.</span></li>
+    </ul>
+  </div>
+</div></section>
 
-  <script src="/assets/js/site.js" defer></script>
+<section class="block"><div class="wrap">
+  <details class="archive"><summary>Archive · 15 retired projects</summary>
+    <div class="arch"><div><a href="https://github.com/asafelobotomy/copilot-instructions-template">copilot-instructions-template</a> <span>★2</span><br><span>Lean/Kaizen Copilot instructions template</span></div><div><a href="https://github.com/asafelobotomy/iCloud-Drive-Downloader">iCloud-Drive-Downloader</a> <span>★8</span><br><span>Download your entire iCloud Drive</span></div><div><a href="https://github.com/asafelobotomy/xanadOS-Search_Destroy">xanadOS-Search_Destroy</a> <span></span><br><span>ClamAV GUI; succeeded by oysterAV</span></div><div><a href="https://github.com/asafelobotomy/remustwo">remustwo</a> <span></span><br><span>Offline ROM catalog manager; succeeded by romforge</span></div><div><a href="https://github.com/asafelobotomy/remus">remus</a> <span>★1</span><br><span>ROM metadata manager; succeeded by romforge</span></div><div><a href="https://github.com/asafelobotomy/LUXusb">LUXusb</a> <span>★1</span><br><span>Multi-distro bootable USB creator</span></div><div><a href="https://github.com/asafelobotomy/ceeline">ceeline</a> <span>★1</span><br><span>Token-efficient AI-to-AI language</span></div><div><a href="https://github.com/asafelobotomy/cursorassistant">cursorassistant</a> <span></span><br><span>Lifecycle management for Cursor AI surfaces</span></div><div><a href="https://github.com/asafelobotomy/curse-book">curse-book</a> <span></span><br><span>GUI studio for Cursor rules and skills</span></div><div><a href="https://github.com/asafelobotomy/myCONTACTS">myCONTACTS</a> <span></span><br><span>Local-first contact extractor extension</span></div><div><a href="https://github.com/asafelobotomy/agent-lab">agent-lab</a> <span></span><br><span>LLM agent benchmarking harness</span></div><div><a href="https://github.com/asafelobotomy/xanados_clean">xanados_clean</a> <span></span><br><span>Arch Linux maintenance script</span></div><div><a href="https://github.com/asafelobotomy/generate_system_report">generate_system_report</a> <span></span><br><span>Full HW/SW system report script</span></div><div><a href="https://github.com/asafelobotomy/ttc-mm-eso">ttc-mm-eso</a> <span></span><br><span>TTC price tables for ESO Master Merchant</span></div><div><a href="https://github.com/asafelobotomy/pivotsliceconnect_excel">pivotsliceconnect_excel</a> <span></span><br><span>Excel pivot &amp; connection macros</span></div></div>
+  </details>
+</div></section>
+</main>
+<footer class="site"><div class="wrap">
+  <span>Made by <a href="https://github.com/asafelobotomy">@asafelobotomy</a>. Apps are open source under their own licences.</span>
+  <span><a href="https://ko-fi.com/U5R225QZH3">Ko-fi</a> · <a href="https://github.com/asafelobotomy?tab=repositories">All repositories</a></span>
+</div></footer>
 </body>
 </html>

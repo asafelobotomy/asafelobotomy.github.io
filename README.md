@@ -9,10 +9,8 @@ Personal developer site hosted on [GitHub Pages](https://asafelobotomy.github.io
 | Page | URL |
 | --- | --- |
 | Home | https://asafelobotomy.github.io/ |
-| cursorAssistant overview | https://asafelobotomy.github.io/cursorassistant/ |
-| cursorAssistant setup (MCP install) | https://asafelobotomy.github.io/cursorassistant/install/ |
-
-The setup URL is linked from the [cursorAssistant](https://github.com/asafelobotomy/cursorassistant) README install badge.
+| One page per app | `https://asafelobotomy.github.io/<app-id>/` (e.g. [/romforge/](https://asafelobotomy.github.io/romforge/)) |
+| cursorAssistant (archived) | https://asafelobotomy.github.io/cursorassistant/ |
 
 ## Enable GitHub Pages
 
@@ -23,11 +21,21 @@ The setup URL is linked from the [cursorAssistant](https://github.com/asafelobot
 
 No Jekyll build is required: `.nojekyll` at the repo root disables Jekyll processing.
 
-## Add a new project
+## Add or update an app
 
-1. Edit [`projects.json`](projects.json) — add an entry with `name`, `description`, `repo`, `docs`, and optional `install`.
-2. Create a folder such as `my-project/index.html` using [`cursorassistant/index.html`](cursorassistant/index.html) as a template (shared styles live in [`assets/css/site.css`](assets/css/site.css)).
-3. Link the new project from the homepage automatically via `projects.json`.
+Everything on the homepage and the app pages comes from [`projects.json`](projects.json).
+
+1. Edit the app's entry in `projects.json` (or add one; `id` becomes its URL). Put icons and screenshots in `assets/img/`.
+2. Regenerate the pages:
+
+   ```bash
+   python3 scripts/build_site.py
+   ```
+
+3. Commit the regenerated `index.html`, `<app-id>/index.html`, `404.html` and `sitemap.xml` with it.
+
+`python3 scripts/build_site.py --check` exits non-zero when a generated file is out of date.
+To retire an app, move it from `apps` to `archive` in `projects.json`, rebuild, and delete its folder.
 
 ## Keep cursorAssistant install page in sync
 
@@ -49,18 +57,16 @@ See [docs/INSTALL_WEBSITE.md](docs/INSTALL_WEBSITE.md).
 ## Structure
 
 ```text
-index.html                 # Homepage (loads projects from projects.json)
-projects.json              # Project registry for the homepage
-assets/css/site.css        # Shared styles
-assets/js/site.js          # Homepage project cards
-cursorassistant/
-  index.html               # Project overview & setup instructions
-  install/                 # Generated install page (template + deeplinks)
-scripts/
-  generate_cursorassistant_install.py
-  sync-cursorassistant-install.sh
-docs/
-  INSTALL_WEBSITE.md
+projects.json              # Apps, categories, archive and Ko-fi link
+scripts/build_site.py      # Generates the pages below from projects.json
+index.html                 # Homepage (generated)
+<app-id>/index.html        # One page per app (generated)
+404.html, sitemap.xml      # Generated
+assets/css/site.css        # Site styles (light + dark)
+assets/css/legacy.css      # Old styles, used by the archived cursorassistant pages
+assets/js/site.js          # Filters, install tabs, copy buttons
+assets/img/                # App icons and screenshots
+cursorassistant/           # Archived project pages, kept so old links work
 ```
 
 ## License

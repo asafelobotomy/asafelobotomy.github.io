@@ -1,17 +1,889 @@
 {
   "owner": "asafelobotomy",
-  "siteTitle": "asafelobotomy",
-  "tagline": "Open source tools for Cursor and developer workflows",
-  "projects": [
+  "kofi": "https://ko-fi.com/U5R225QZH3",
+  "categories": {
+    "games": "Games & ROMs",
+    "media": "Downloads & media",
+    "system": "System & security",
+    "everyday": "Everyday tools"
+  },
+  "apps": [
     {
-      "id": "cursorassistant",
-      "name": "cursorAssistant",
-      "description": "Lifecycle management for Cursor AI surfaces — agents, skills, rules, and MCP in any workspace.",
-      "repo": "https://github.com/asafelobotomy/cursorassistant",
-      "docs": "/cursorassistant/",
-      "install": "/cursorassistant/install/",
-      "badge": "Cursor",
-      "featured": true
+      "id": "romforge",
+      "name": "romforge",
+      "cat": "games",
+      "icon": "/assets/img/romforge.webp",
+      "lang": "Rust · Tauri",
+      "ver": "v0.15.0",
+      "date": "2026-10-25",
+      "lic": "MIT",
+      "platforms": [
+        "Linux desktop",
+        "CLI"
+      ],
+      "tag": "Identify, tidy, enrich and play your ROM collection, from the desk or the sofa.",
+      "what": "romforge works out exactly what each file is by its fingerprint, gives it the right name and art, and starts it in the right emulator. Scanning only reads. Nothing is moved, renamed or repacked until you've seen the plan and said yes, and every change can be undone.",
+      "shots": [
+        {
+          "src": "/assets/img/shot-theme-neon-arcade.webp",
+          "caption": "Fullscreen mode with the Neon Arcade theme"
+        },
+        {
+          "src": "/assets/img/shot-theme-snes-us.webp",
+          "caption": "SNES (US) theme"
+        },
+        {
+          "src": "/assets/img/shot-layout-coverflow.webp",
+          "caption": "Cover flow layout"
+        },
+        {
+          "src": "/assets/img/shot-theme-playstation-2.webp",
+          "caption": "PlayStation 2 theme"
+        },
+        {
+          "src": "/assets/img/shot-layout-shelves.webp",
+          "caption": "Shelves layout"
+        }
+      ],
+      "features": [
+        {
+          "title": "Identifies every game",
+          "text": "Matches against No-Intro, Redump, TOSEC, MAME and ScummVM by hash, even inside zip, 7z and CHD."
+        },
+        {
+          "title": "Tidies your collection",
+          "text": "Renames and repacks into one folder (zip for cartridges, CHD for discs), previewed first, one-click undo."
+        },
+        {
+          "title": "Fills in the details",
+          "text": "Box art, screenshots, fanart, logos and release data from free open sources."
+        },
+        {
+          "title": "Plays them",
+          "text": "RetroArch or the right standalone emulator: DuckStation, PCSX2, Dolphin, PPSSPP, MAME and more."
+        },
+        {
+          "title": "Feels like a console",
+          "text": "Gamepad-driven fullscreen mode for the TV, with community themes."
+        },
+        {
+          "title": "Translations and hacks",
+          "text": "Patches a game you own into a translated or hacked copy without touching the original."
+        }
+      ],
+      "install": [
+        {
+          "label": "Debian / Ubuntu",
+          "code": "sudo apt install ./romforge_<version>_amd64.deb"
+        },
+        {
+          "label": "Fedora / openSUSE",
+          "code": "sudo dnf install ./romforge-<version>-1.x86_64.rpm"
+        },
+        {
+          "label": "Arch / Manjaro",
+          "code": "# romforge-bin PKGBUILD from the release\nmakepkg -si"
+        },
+        {
+          "label": "AppImage",
+          "code": "chmod +x romforge_<version>_amd64.AppImage\n./romforge_<version>_amd64.AppImage"
+        }
+      ],
+      "installNote": "Install RetroArch (with a few cores) and any standalone emulators you like. romforge finds them on its own, Flatpaks too.",
+      "steps": [
+        "Open romforge. On first run it offers to make a RomForge folder for your library, games, art, saves and BIOS.",
+        "In DATs, download the game lists for your systems.",
+        "Scan a folder. Each game shows as verified, candidate or unknown. Nothing changes yet.",
+        "Use Search to name what wasn't recognised, and Enrich to fetch art.",
+        "Rename & Cleanup shows its plan, then files your verified games. Undo puts everything back.",
+        "Press Play, or Fullscreen (F11) and pick up a pad."
+      ],
+      "docs": [
+        {
+          "title": "Themes",
+          "path": "romforge-themes",
+          "url": "https://github.com/asafelobotomy/romforge-themes"
+        },
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/romforge/releases"
+        }
+      ],
+      "extra": "themes"
+    },
+    {
+      "id": "oysterav",
+      "repo": "oysterAV",
+      "name": "oysterAV",
+      "cat": "system",
+      "icon": "/assets/img/oysterav.webp",
+      "lang": "Python · GTK4",
+      "ver": "v0.2.2",
+      "date": "2026-07-27",
+      "lic": "GPL-3.0",
+      "platforms": [
+        "Linux desktop",
+        "CLI"
+      ],
+      "tag": "One calm GUI over ClamAV, rkhunter, Lynis and friends.",
+      "what": "oysterAV is a security orchestrator, not another engine. oyst-cli owns every security action and the GTK4 / libadwaita app is a thin client on top, so the CLI and GUI never disagree. Privileged multi-step flows ask for admin once per action.",
+      "shots": [
+        {
+          "src": "/assets/img/shot-oysterav-dashboard.webp",
+          "caption": "Dashboard"
+        },
+        {
+          "src": "/assets/img/shot-oysterav-scan.webp",
+          "caption": "Scan: profiles, paths and pack cards"
+        },
+        {
+          "src": "/assets/img/shot-oysterav-quarantine.webp",
+          "caption": "Quarantine vault with restore and delete"
+        }
+      ],
+      "features": [
+        {
+          "title": "Orchestrator, not engine",
+          "text": "Wraps ClamAV, rkhunter, Lynis and more instead of reimplementing them."
+        },
+        {
+          "title": "CLI owns security",
+          "text": "oyst-cli is the source of truth. The GUI only talks to it."
+        },
+        {
+          "title": "Full or Lite runtime",
+          "text": "Vendored tools under XDG, or host packages only."
+        },
+        {
+          "title": "One prompt per action",
+          "text": "Privilege Concert batches multi-step admin work behind one auth."
+        },
+        {
+          "title": "Shield",
+          "text": "Firewall, fail2ban and ban management."
+        },
+        {
+          "title": "Reports & quarantine",
+          "text": "History, export, resolve; vault with restore and delete."
+        }
+      ],
+      "install": [
+        {
+          "label": "CLI",
+          "code": "uv sync --extra all\nuv run oyst-cli setup run --confirm --json\nuv run oyst-cli scan ~/Downloads --json"
+        },
+        {
+          "label": "GUI",
+          "code": "uv sync --extra gui --extra dev\nuv run oysterav"
+        }
+      ],
+      "installNote": "Needs Python 3.12+ and uv. The GUI also needs system GTK4 and libadwaita. First setup can take a few minutes while signatures download.",
+      "docs": [
+        {
+          "title": "CLI reference",
+          "path": "docs/cli/reference.md",
+          "url": "https://github.com/asafelobotomy/oysterAV/blob/main/docs/cli/reference.md"
+        },
+        {
+          "title": "Architecture decisions",
+          "path": "docs/adr",
+          "url": "https://github.com/asafelobotomy/oysterAV/blob/main/docs/adr/README.md"
+        },
+        {
+          "title": "GUI ↔ CLI contract",
+          "path": "docs/cli/gui-contract.md",
+          "url": "https://github.com/asafelobotomy/oysterAV/blob/main/docs/cli/gui-contract.md"
+        }
+      ]
+    },
+    {
+      "id": "emobie",
+      "name": "emobie",
+      "cat": "everyday",
+      "icon": "/assets/img/emobie.webp",
+      "lang": "Rust · Tauri + React",
+      "ver": "v0.8.2",
+      "date": "2026-10-10",
+      "lic": "MIT",
+      "platforms": [
+        "Flatpak",
+        ".deb",
+        ".rpm",
+        "AppImage"
+      ],
+      "tag": "A compact emoji palette for content creators. Summon, search, copy, done.",
+      "what": "emobie puts the full Unicode emoji set behind a global hotkey and a tray icon. Favourites, recents, text macros and as-you-type expansion make it a small writing tool as much as a picker.",
+      "shots": [
+        {
+          "src": "/assets/img/shot-emobie-browse.webp",
+          "caption": "Browse with categories and search"
+        },
+        {
+          "src": "/assets/img/shot-emobie-dark.webp",
+          "caption": "Dark theme"
+        }
+      ],
+      "features": [
+        {
+          "title": "Full catalog",
+          "text": "Every Unicode emoji via emojibase; search by name, tag or shortcode."
+        },
+        {
+          "title": "Summon anywhere",
+          "text": "Global hotkey (Ctrl+Shift+Space) and system tray."
+        },
+        {
+          "title": "Macros",
+          "text": "Trigger → expansion cards, per-macro hotkeys, YAML import/export."
+        },
+        {
+          "title": "Expand as you type",
+          "text": "Opt-in: type a trigger anywhere to replace it."
+        },
+        {
+          "title": "Pin on top",
+          "text": "Always-on-top on X11, Plasma Wayland and GNOME Wayland."
+        },
+        {
+          "title": "Self-updating",
+          "text": "Optional check that installs the matching release asset."
+        }
+      ],
+      "install": [
+        {
+          "label": "Flatpak",
+          "code": "flatpak install --user emobie-*-x86_64.flatpak\nflatpak run io.github.asafelobotomy.emobie"
+        },
+        {
+          "label": ".deb",
+          "code": "sudo apt install ./emobie_*_amd64.deb"
+        },
+        {
+          "label": ".rpm",
+          "code": "sudo dnf install ./emobie-*-1.x86_64.rpm"
+        },
+        {
+          "label": "AppImage",
+          "code": "chmod +x emobie_*.AppImage && ./emobie_*.AppImage"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Linux notes",
+          "path": "docs/LINUX.md",
+          "url": "https://github.com/asafelobotomy/emobie/blob/main/docs/LINUX.md"
+        },
+        {
+          "title": "Macros",
+          "path": "docs/MACROS.md",
+          "url": "https://github.com/asafelobotomy/emobie/blob/main/docs/MACROS.md"
+        },
+        {
+          "title": "Flathub",
+          "path": "docs/FLATHUB.md",
+          "url": "https://github.com/asafelobotomy/emobie/blob/main/docs/FLATHUB.md"
+        }
+      ]
+    },
+    {
+      "id": "hauler",
+      "name": "hauler",
+      "cat": "media",
+      "lang": "Rust · Kirigami",
+      "ver": "v0.1.2",
+      "date": "2026-10-24",
+      "lic": "GPL-3.0",
+      "platforms": [
+        "Linux desktop",
+        "CLI",
+        "systemd"
+      ],
+      "tag": "Fast, resumable downloads over parallel connections. Linux first.",
+      "what": "hauler splits each file across many connections and rebalances them as they finish: when a connection runs out of work, it takes the upper half of whichever segment has the most left. Progress is synced every two seconds, so a crash or reboot resumes where it stopped.",
+      "features": [
+        {
+          "title": "Dynamic splitting",
+          "text": "Idle connections steal half of the largest remaining segment."
+        },
+        {
+          "title": "Crash-safe resume",
+          "text": "One preallocated .part file plus an atomic progress file."
+        },
+        {
+          "title": "Safe resume",
+          "text": "If-Range on every request; a changed file restarts instead of mixing versions."
+        },
+        {
+          "title": "Live speed limits",
+          "text": "Per-download and global token buckets, adjustable while running."
+        },
+        {
+          "title": "Daemon & queue",
+          "text": "haulerd with JSON-RPC over a user socket, SQLite queue, priorities."
+        },
+        {
+          "title": "Plays nice with Linux",
+          "text": "Plasma job tracker, logind sleep inhibitor, NetworkManager metered pause."
+        }
+      ],
+      "install": [
+        {
+          "label": "User install",
+          "code": "scripts/install-user.sh"
+        },
+        {
+          "label": "Queue a download",
+          "code": "hauler add -x 16 --limit 2M https://example.com/big.iso\nhauler watch"
+        },
+        {
+          "label": "One-off",
+          "code": "hauler get -x 16 --checksum sha256:<hex> https://example.com/big.iso"
+        }
+      ],
+      "installNote": "The desktop app needs Qt 6, Kirigami, KItemModels and qqc2-desktop-style. On Arch and Manjaro these come with Plasma.",
+      "extra": "segmap",
+      "docs": [
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/hauler/releases"
+        }
+      ]
+    },
+    {
+      "id": "reshadelinux",
+      "name": "ReShadeLinux",
+      "cat": "games",
+      "icon": "/assets/img/reshadelinux.webp",
+      "lang": "Shell",
+      "ver": "v1.4.1",
+      "date": "2026-10-24",
+      "lic": "GPL-2.0",
+      "stars": 20,
+      "platforms": [
+        "AppImage",
+        "Source"
+      ],
+      "tag": "Install the official ReShade runtime for Wine and Proton games.",
+      "what": "ReShadeLinux finds your Steam games, picks the right ReShade hook DLL by reading each executable's imports, and keeps per-game shader choices. ReShade itself is by crosire and its contributors; this project continues kevinlekiller's reshade-steam-proton installer flow.",
+      "features": [
+        {
+          "title": "Steam detection",
+          "text": "Scans every Steam library and reads appinfo.vdf for the real launch executable."
+        },
+        {
+          "title": "DLL selection",
+          "text": "PE import analysis picks dxgi, d3d9, opengl32, ddraw or dinput8."
+        },
+        {
+          "title": "Per-game state",
+          "text": "Remembers DLL, architecture, path and shaders per game."
+        },
+        {
+          "title": "GUI or CLI",
+          "text": "yad dialogs, falling back to whiptail, dialog, then plain prompts."
+        }
+      ],
+      "install": [
+        {
+          "label": "AppImage",
+          "code": "chmod +x reshadelinux-*-x86_64.AppImage\n./reshadelinux-*-x86_64.AppImage"
+        },
+        {
+          "label": "From source",
+          "code": "git clone https://github.com/asafelobotomy/reshadelinux.git\ncd reshadelinux\n./reshadelinux.sh"
+        }
+      ],
+      "installNote": "Needs 7z, git, curl, file and python3 on the host. Install yad for the graphical flow.",
+      "docs": [
+        {
+          "title": "Changelog",
+          "path": "CHANGELOG.md",
+          "url": "https://github.com/asafelobotomy/reshadelinux/blob/main/CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "id": "av-morning-star",
+      "repo": "AV-Morning-Star",
+      "name": "AV Morning Star",
+      "cat": "media",
+      "icon": "/assets/img/av-morning-star.webp",
+      "lang": "Python · PyQt5",
+      "ver": "v0.4.2",
+      "date": "2026-10-02",
+      "lic": "MIT",
+      "platforms": [
+        "AppImage"
+      ],
+      "tag": "Download video and audio from YouTube, Odysee and 1000+ sites.",
+      "what": "AV Morning Star wraps yt-dlp in a clean desktop app. Basic mode is one click; Advanced mode adds loudness normalisation, denoising, stabilisation and container choice. YouTube cookies are only read with your consent, and only in memory.",
+      "shots": [
+        {
+          "src": "/assets/img/shot-avms.webp",
+          "caption": "Main window"
+        }
+      ],
+      "features": [
+        {
+          "title": "Any quality",
+          "text": "Best, 4K down to 360p, plus audio-only in MP3, FLAC, Opus and more."
+        },
+        {
+          "title": "Playlists & channels",
+          "text": "Fetch every entry, pick the ones you want."
+        },
+        {
+          "title": "Cookieless by default",
+          "text": "Asks before reading a browser's cookies; never writes them to disk."
+        },
+        {
+          "title": "Audio cleanup",
+          "text": "EBU R128 loudness, dynamic normalisation, FFT noise reduction."
+        },
+        {
+          "title": "Video cleanup",
+          "text": "hqdn3d denoise, deshake stabilisation, unsharp sharpening."
+        },
+        {
+          "title": "Filename templates",
+          "text": "Click tags like Title, Uploader and Quality to build names."
+        }
+      ],
+      "install": [
+        {
+          "label": "AppImage",
+          "code": "chmod +x AV-Morning-Star-*.AppImage\n./AV-Morning-Star-*.AppImage"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Documentation",
+          "path": "docs/README.md",
+          "url": "https://github.com/asafelobotomy/AV-Morning-Star/blob/main/docs/README.md"
+        },
+        {
+          "title": "Report a bug",
+          "path": "issues",
+          "url": "https://github.com/asafelobotomy/AV-Morning-Star/issues"
+        }
+      ]
+    },
+    {
+      "id": "xzram",
+      "repo": "XZram",
+      "name": "XZram",
+      "cat": "system",
+      "icon": "/assets/img/xzram.webp",
+      "lang": "Rust · Qt6",
+      "ver": "v0.4.3",
+      "date": "2026-10-14",
+      "lic": "see repo",
+      "platforms": [
+        "Fedora",
+        "Debian / Ubuntu",
+        "Arch (AUR)"
+      ],
+      "tag": "Cross-distro swap management: zram, swap files, partitions and sysctl tuning.",
+      "what": "XZram is CLI-first. Diagnostics run without root; changes are staged and applied atomically, with a snapshot before every apply so you can roll back. A Qt6 GUI and an optional D-Bus daemon sit on top.",
+      "features": [
+        {
+          "title": "Read-only diagnostics",
+          "text": "status, detect and doctor, no root needed."
+        },
+        {
+          "title": "Staged apply",
+          "text": "Changes stage to pending.json; apply runs them atomically."
+        },
+        {
+          "title": "zram",
+          "text": "Configures systemd-zram-generator and migrates from zram-tools."
+        },
+        {
+          "title": "Swap files",
+          "text": "Create, resize, remove; enforces nodatacow on btrfs."
+        },
+        {
+          "title": "Sysctl tuning",
+          "text": "Swappiness, watermark and page-cluster."
+        },
+        {
+          "title": "Snapshots",
+          "text": "Automatic backup before every apply, versioned restore."
+        }
+      ],
+      "install": [
+        {
+          "label": "Diagnose",
+          "code": "xzram status\nxzram doctor"
+        },
+        {
+          "label": "Arch (AUR)",
+          "code": "# packaging/aur in the repo\nmakepkg -si"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/XZram/releases"
+        }
+      ]
+    },
+    {
+      "id": "scdr",
+      "name": "SCDR",
+      "cat": "system",
+      "lang": "Rust",
+      "ver": null,
+      "date": null,
+      "lic": "MPL-2.0",
+      "platforms": [
+        "Arch (AUR)",
+        "systemd"
+      ],
+      "tag": "Process scheduling and priority daemon for EEVDF and sched_ext kernels.",
+      "what": "SCDR is a modern successor to system76-scheduler, drawing on ananicy-cpp, GameMode and scx-loader. It boosts the focused app, audio and games, demotes background apps under CPU pressure, and only ever changes values it owns.",
+      "features": [
+        {
+          "title": "Rules per process",
+          "text": "Match name, exe, cmdline, cgroup, parent or uid; set nice, slice_us, io, oom and uclamp."
+        },
+        {
+          "title": "systemd weights",
+          "text": "Sets cpu_weight and io_weight on the app's unit through systemd itself."
+        },
+        {
+          "title": "Live roles",
+          "text": "Foreground (KWin, Hyprland, niri, GNOME), PipeWire audio and GameMode games."
+        },
+        {
+          "title": "Pressure aware",
+          "text": "Demotes unfocused apps when PSI crosses a threshold."
+        },
+        {
+          "title": "sched_ext policy",
+          "text": "Optionally picks a sched_ext scheduler."
+        },
+        {
+          "title": "Polite",
+          "text": "Leaves alone anything rtkit, GameMode, renice or chrt changed."
+        }
+      ],
+      "install": [
+        {
+          "label": "Arch (AUR)",
+          "code": "# packaging/aur in the repo\nmakepkg -si\nsystemctl enable --now scdrd"
+        },
+        {
+          "label": "Status",
+          "code": "scdrctl status"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Design & roadmap",
+          "path": "DESIGN.md",
+          "url": "https://github.com/asafelobotomy/scdr/blob/main/DESIGN.md"
+        }
+      ]
+    },
+    {
+      "id": "buckler",
+      "name": "Buckler",
+      "cat": "everyday",
+      "lang": "Kotlin · Python",
+      "ver": "v0.21.0",
+      "date": "2026-10-30",
+      "lic": "MIT",
+      "platforms": [
+        "NVIDIA SHIELD TV",
+        "CLI"
+      ],
+      "tag": "Debloat and relaunch your NVIDIA SHIELD TV Pro, safely.",
+      "what": "Buckler is an ADB command-line tool and a custom HOME launcher for the SHIELD TV Pro. Every change is journaled and reversible, OTA drift is detected, and the box is never left without a home screen. It keeps NVIDIA AI upscaling, Play and Chromecast working.",
+      "features": [
+        {
+          "title": "Probe & audit",
+          "text": "Identity, HOME owner, package state, AI upscaling health."
+        },
+        {
+          "title": "Profiles",
+          "text": "Journaled disable-user profiles: privacy-core, speech, minimal, extras."
+        },
+        {
+          "title": "buckler-home",
+          "text": "A clean launcher, installed and handed HOME only after it verifies."
+        },
+        {
+          "title": "After OTAs",
+          "text": "check --fix re-applies what an update turned back on."
+        },
+        {
+          "title": "Tidy",
+          "text": "Find unused apps, clear caches, install open icon packs."
+        }
+      ],
+      "install": [
+        {
+          "label": "On the TV",
+          "code": "# See docs/install.md: install with Downloader on the TV,\n# or from a computer over ADB"
+        },
+        {
+          "label": "Typical flow",
+          "code": "buckler probe\nbuckler apply --profile privacy-core\nbuckler launcher install\nbuckler launcher handover"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Install on your TV",
+          "path": "docs/install.md",
+          "url": "https://github.com/asafelobotomy/buckler/blob/main/docs/install.md"
+        },
+        {
+          "title": "Safety model",
+          "path": "docs/safety.md",
+          "url": "https://github.com/asafelobotomy/buckler/blob/main/docs/safety.md"
+        }
+      ]
+    },
+    {
+      "id": "readit",
+      "name": "readit",
+      "cat": "everyday",
+      "icon": "/assets/img/readit.webp",
+      "lang": "TypeScript · WXT",
+      "ver": "v0.2.4",
+      "date": "2026-10-02",
+      "lic": "MIT",
+      "platforms": [
+        "Chrome",
+        "Firefox 140+"
+      ],
+      "tag": "Profile-first extension for New Reddit: for readers, creators and moderators.",
+      "what": "readit reshapes New Reddit around who you are rather than restoring Old Reddit. Pick a profile and it sets layout, density and tools to match. A clean-room build, inspired by RedditEnhancer and Moderator Toolbox workflows.",
+      "features": [
+        {
+          "title": "Focus Reader",
+          "text": "Calm reading layout."
+        },
+        {
+          "title": "Dense Power",
+          "text": "More posts per screen for readers and creators."
+        },
+        {
+          "title": "Creator Desk",
+          "text": "Tools for posting."
+        },
+        {
+          "title": "Minimal Media",
+          "text": "Media-first, chrome-light."
+        },
+        {
+          "title": "Mod Desk",
+          "text": "Moderator workflows."
+        }
+      ],
+      "install": [
+        {
+          "label": "Chrome",
+          "code": "npm install && npm run build\n# chrome://extensions → Developer mode → Load unpacked → dist/chrome-mv3"
+        },
+        {
+          "label": "Firefox",
+          "code": "npm run build:firefox\n# about:debugging → Load Temporary Add-on → dist/firefox-mv3/manifest.json"
+        }
+      ],
+      "installNote": "Store listings would remove the build step for most people; see suggestions below.",
+      "docs": [
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/readit/releases"
+        }
+      ]
+    },
+    {
+      "id": "qbit-plugin-dl",
+      "name": "qbit Plugin Manager",
+      "cat": "media",
+      "icon": "/assets/img/qbit-plugin-dl.webp",
+      "lang": "Python · Qt",
+      "ver": "v0.2.1",
+      "date": "2026-10-11",
+      "lic": "MIT",
+      "platforms": [
+        "AppImage"
+      ],
+      "tag": "Pick and install qBittorrent search plugins from allowlisted catalogs.",
+      "what": "Merges the unofficial wiki list, the official nova3 engines and LightDestory's catalog, filters by category and installs straight into qBittorrent's engines folder. Discouraged entries stay unchecked and every plugin gets a static safety check first.",
+      "features": [
+        {
+          "title": "Multi-source",
+          "text": "Wiki, official nova3 and LightDestory, cached for 6 hours."
+        },
+        {
+          "title": "Category filters",
+          "text": "Anime, books, games, movies, music, software, TV and more."
+        },
+        {
+          "title": "Safer defaults",
+          "text": "Static review, optional ClamAV scan, discouraged entries unchecked."
+        },
+        {
+          "title": "Finds qBittorrent",
+          "text": "Flatpak and native engine folders detected automatically."
+        }
+      ],
+      "install": [
+        {
+          "label": "AppImage",
+          "code": "chmod +x qbit-plugin-dl-*.AppImage\n./qbit-plugin-dl-*.AppImage"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/qbit-plugin-dl/releases"
+        }
+      ]
+    },
+    {
+      "id": "sonicsound",
+      "repo": "SonicSound",
+      "name": "SonicSound",
+      "cat": "media",
+      "icon": "/assets/img/sonicsound.webp",
+      "lang": "Kotlin · React",
+      "ver": "v0.2.4",
+      "date": "2026-08-25",
+      "lic": "MIT",
+      "platforms": [
+        "Android",
+        "Android TV",
+        "PWA"
+      ],
+      "tag": "Album-centred music client for Navidrome, Airsonic and other Subsonic servers.",
+      "what": "A maintained, modernised fork of SonicLair. Browse by artist and album, play whole albums, radio from similar songs, lyrics when your server has them, and an Android TV build you can drive from your phone.",
+      "features": [
+        {
+          "title": "Album-centred",
+          "text": "Browse by artist and album; play whole records."
+        },
+        {
+          "title": "Android TV",
+          "text": "Leanback UI, phone remote, Jukebox collections, mDNS discovery."
+        },
+        {
+          "title": "Radio & lyrics",
+          "text": "Similar-song radio and getLyrics support."
+        },
+        {
+          "title": "Works with older servers",
+          "text": "Negotiates API versions for older Airsonic / Subsonic."
+        }
+      ],
+      "install": [
+        {
+          "label": "Android",
+          "code": "# Download the APK from the latest release"
+        },
+        {
+          "label": "Web",
+          "code": "npm install && npm run build"
+        }
+      ],
+      "docs": [
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/SonicSound/releases"
+        },
+        {
+          "title": "Upstream",
+          "path": "SonicLair",
+          "url": "https://github.com/thelinkin3000/SonicLair"
+        }
+      ]
+    }
+  ],
+  "archive": [
+    {
+      "repo": "copilot-instructions-template",
+      "description": "Lean/Kaizen Copilot instructions template",
+      "stars": "★2"
+    },
+    {
+      "repo": "iCloud-Drive-Downloader",
+      "description": "Download your entire iCloud Drive",
+      "stars": "★8"
+    },
+    {
+      "repo": "xanadOS-Search_Destroy",
+      "description": "ClamAV GUI; succeeded by oysterAV",
+      "stars": ""
+    },
+    {
+      "repo": "remustwo",
+      "description": "Offline ROM catalog manager; succeeded by romforge",
+      "stars": ""
+    },
+    {
+      "repo": "remus",
+      "description": "ROM metadata manager; succeeded by romforge",
+      "stars": "★1"
+    },
+    {
+      "repo": "LUXusb",
+      "description": "Multi-distro bootable USB creator",
+      "stars": "★1"
+    },
+    {
+      "repo": "ceeline",
+      "description": "Token-efficient AI-to-AI language",
+      "stars": "★1"
+    },
+    {
+      "repo": "cursorassistant",
+      "description": "Lifecycle management for Cursor AI surfaces",
+      "stars": ""
+    },
+    {
+      "repo": "curse-book",
+      "description": "GUI studio for Cursor rules and skills",
+      "stars": ""
+    },
+    {
+      "repo": "myCONTACTS",
+      "description": "Local-first contact extractor extension",
+      "stars": ""
+    },
+    {
+      "repo": "agent-lab",
+      "description": "LLM agent benchmarking harness",
+      "stars": ""
+    },
+    {
+      "repo": "xanados_clean",
+      "description": "Arch Linux maintenance script",
+      "stars": ""
+    },
+    {
+      "repo": "generate_system_report",
+      "description": "Full HW/SW system report script",
+      "stars": ""
+    },
+    {
+      "repo": "ttc-mm-eso",
+      "description": "TTC price tables for ESO Master Merchant",
+      "stars": ""
+    },
+    {
+      "repo": "pivotsliceconnect_excel",
+      "description": "Excel pivot & connection macros",
+      "stars": ""
     }
   ]
 }
