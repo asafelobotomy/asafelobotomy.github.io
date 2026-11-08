@@ -5,7 +5,8 @@
     "games": "Games & ROMs",
     "media": "Downloads & media",
     "system": "System & security",
-    "everyday": "Everyday tools"
+    "everyday": "Everyday tools",
+    "dev": "Developer tools"
   },
   "apps": [
     {
@@ -113,14 +114,371 @@
       "extra": "themes"
     },
     {
+      "id": "noti-fi",
+      "name": "noti-fi",
+      "cat": "everyday",
+      "icon": "/assets/img/noti-fi.webp",
+      "lang": "Rust · Quickshell",
+      "ver": "v0.18.0",
+      "date": "2026-11-08",
+      "lic": "MIT",
+      "platforms": [
+        "KDE Plasma (Wayland)",
+        "Hyprland",
+        "CLI"
+      ],
+      "tag": "A notification daemon for KDE Plasma on Wayland, with rules, groups and a control panel.",
+      "what": "noti-fi (notification fidelity) replaces Plasma's built-in notification service with notifd, built on Quickshell. Rules route each popup into a named group with its own corner of the screen, and the notify command installs it, switches Plasma over and back, and gives you Do Not Disturb, muting, history and a hotkey.",
+      "features": [
+        {
+          "title": "Groups & rules",
+          "text": "Route popups by app, site, urgency or text, each group in its own corner."
+        },
+        {
+          "title": "Safe takeover",
+          "text": "notify takeover --dry-run shows every change; notify restore undoes it."
+        },
+        {
+          "title": "Screen-share aware",
+          "text": "Hides notification text while the screen is shared or captured."
+        },
+        {
+          "title": "File-job progress",
+          "text": "Dolphin copies, moves and extracts show as popups with live progress."
+        },
+        {
+          "title": "Control panel",
+          "text": "Kirigami app for history, appearance, focus modes, groups and rules."
+        },
+        {
+          "title": "Self-updating",
+          "text": "notify upgrade checks the release checksum before replacing anything."
+        }
+      ],
+      "install": [
+        {
+          "label": "From a release",
+          "code": "tar xzf noti-fi-*-linux.tar.gz && cd noti-fi-*-linux\n./install.sh\nnotify takeover --dry-run\nnotify takeover --now"
+        },
+        {
+          "label": "Arch (build)",
+          "code": "cd packaging && makepkg -si"
+        },
+        {
+          "label": "Update",
+          "code": "notify upgrade --apply"
+        }
+      ],
+      "installNote": "Needs quickshell, qt6-declarative, kirigami and qqc2-desktop-style at run time. qt6-multimedia is optional.",
+      "docs": [
+        {
+          "title": "Control protocol",
+          "path": "docs/protocol.md",
+          "url": "https://github.com/asafelobotomy/noti-fi/blob/main/docs/protocol.md"
+        },
+        {
+          "title": "Changelog",
+          "path": "CHANGELOG.md",
+          "url": "https://github.com/asafelobotomy/noti-fi/blob/main/CHANGELOG.md"
+        },
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/noti-fi/releases"
+        }
+      ]
+    },
+    {
+      "id": "gutcheck",
+      "name": "GutCheck",
+      "cat": "dev",
+      "icon": "/assets/img/gutcheck.webp",
+      "lang": "Electron · JS",
+      "ver": "v0.27.1",
+      "date": "2026-11-08",
+      "lic": "MIT",
+      "platforms": [
+        "Linux desktop",
+        "CLI",
+        "MCP server"
+      ],
+      "tag": "A health check across every GitHub project in a folder.",
+      "what": "GutCheck scans a folder of repos and grades each one: CI, pull requests, branches, docs, Actions security, dependencies, releases, settings, clutter, tests and AI agent setup. It runs on your existing gh and git login, never handles tokens itself, and also works as a command line and an MCP server so coding agents can use the same checks.",
+      "shots": [
+        {
+          "src": "/assets/img/shot-gutcheck-dashboard.webp",
+          "caption": "Dashboard: health grades and the repos that need attention"
+        },
+        {
+          "src": "/assets/img/shot-gutcheck-repo.webp",
+          "caption": "A repo and its findings, each with a fix"
+        }
+      ],
+      "features": [
+        {
+          "title": "One scan, every repo",
+          "text": "CI, PRs, branches, docs, security, dependencies and releases, graded A to D."
+        },
+        {
+          "title": "Fixes you see first",
+          "text": "Every change shows the exact commands before it runs, and only those run."
+        },
+        {
+          "title": "Actions security",
+          "text": "Script injection, unpinned actions and loose permissions, read as text."
+        },
+        {
+          "title": "Your own rules",
+          "text": "Ignore a finding with a reason, or set a baseline every repo should meet."
+        },
+        {
+          "title": "AI agent setup",
+          "text": "Checks CLAUDE.md and AGENTS.md size, drift and risky permission rules."
+        },
+        {
+          "title": "Local and private",
+          "text": "No account, no server, no telemetry. GitHub data comes through gh."
+        }
+      ],
+      "install": [
+        {
+          "label": "AppImage",
+          "code": "chmod +x GutCheck-*.AppImage\n./GutCheck-*.AppImage"
+        },
+        {
+          "label": "From source",
+          "code": "npm install\nnpm start"
+        }
+      ],
+      "installNote": "Needs gh and git on your PATH, with gh auth login done. Each release ships SHA256SUMS.txt.",
+      "docs": [
+        {
+          "title": "Where the advice comes from",
+          "path": "docs/sources.md",
+          "url": "https://github.com/asafelobotomy/gutcheck/blob/main/docs/sources.md"
+        },
+        {
+          "title": "Changelog",
+          "path": "CHANGELOG.md",
+          "url": "https://github.com/asafelobotomy/gutcheck/blob/main/CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "id": "appofholding",
+      "name": "appOFholding",
+      "cat": "system",
+      "icon": "/assets/img/appofholding.webp",
+      "lang": "Rust · Kirigami",
+      "ver": "v0.5.0",
+      "date": "2026-11-06",
+      "lic": "GPL-3.0",
+      "platforms": [
+        "Linux desktop",
+        "CLI",
+        "Arch"
+      ],
+      "tag": "Keep your AppImages tidy, up to date and sandboxed.",
+      "what": "appOFholding adds AppImages to your menu, keeps them up to date from GitHub, GitLab, Forgejo or plain links, and can run them in a bubblewrap sandbox. Launch options live in a database, so they survive every update. A Qt/Kirigami app and a CLI share one library.",
+      "features": [
+        {
+          "title": "Paste a link, get an app",
+          "text": "Picks the right file for your CPU, verifies its checksum and adds it to the menu."
+        },
+        {
+          "title": "Import what you have",
+          "text": "Finds loose and already-integrated AppImages and shows a dry-run plan first."
+        },
+        {
+          "title": "Updates you can trust",
+          "text": "Checksums, resumable downloads, rollback, and per-app policies."
+        },
+        {
+          "title": "Launch options that stick",
+          "text": "Arguments, env, presets like electron-wayland, and hooks."
+        },
+        {
+          "title": "Optional sandbox",
+          "text": "Standard or strict bubblewrap, with a private home per app."
+        },
+        {
+          "title": "Repeatable setups",
+          "text": "export and apply move your whole setup between machines."
+        }
+      ],
+      "install": [
+        {
+          "label": "Arch",
+          "code": "cd packaging/arch && makepkg -si"
+        },
+        {
+          "label": "From source",
+          "code": "make\nsudo make install PREFIX=/usr"
+        },
+        {
+          "label": "Quick start",
+          "code": "appofholding add https://github.com/owner/repo\nappofholding import --dry-run\nappofholding check && appofholding update"
+        }
+      ],
+      "installNote": "Building needs Rust 1.89+, Qt 6 with Kirigami, CMake and a C++ compiler. The sandbox needs bubblewrap and xdg-dbus-proxy.",
+      "docs": [
+        {
+          "title": "Sandboxing",
+          "path": "docs/sandbox.md",
+          "url": "https://github.com/asafelobotomy/appofholding/blob/main/docs/sandbox.md"
+        },
+        {
+          "title": "Importing AppImages",
+          "path": "docs/importing.md",
+          "url": "https://github.com/asafelobotomy/appofholding/blob/main/docs/importing.md"
+        },
+        {
+          "title": "Making your AppImage updatable",
+          "path": "docs/embedding-update-info.md",
+          "url": "https://github.com/asafelobotomy/appofholding/blob/main/docs/embedding-update-info.md"
+        }
+      ]
+    },
+    {
+      "id": "pass-broker",
+      "name": "Pass Broker",
+      "cat": "system",
+      "icon": "/assets/img/pass-broker.webp",
+      "lang": "Python · Rust",
+      "ver": "v0.3.1",
+      "date": "2026-11-05",
+      "lic": "MIT",
+      "platforms": [
+        "Linux desktop",
+        "AppImage",
+        "MCP server"
+      ],
+      "tag": "Let AI assistants sign in with your Proton Pass logins without ever seeing them.",
+      "what": "Pass Broker runs on your PC as a remote MCP server. Assistants such as Claude drive a locked-down browser through redacted tools and only ever get handles, masked snapshots and blacked-out screenshots. Every secret stays on your PC, and every use needs your approval on your desktop.",
+      "features": [
+        {
+          "title": "Secrets never leave",
+          "text": "Passwords, 2FA codes and your Proton Pass token stay on your PC."
+        },
+        {
+          "title": "Approve every use",
+          "text": "A desktop prompt for each sign-in, file unlock or device action."
+        },
+        {
+          "title": "Locked-down browser",
+          "text": "Sandboxed Chromium that only shows web pages and refuses permissions."
+        },
+        {
+          "title": "Setup wizard",
+          "text": "Six steps from requirements to connecting assistants, each locked once confirmed."
+        },
+        {
+          "title": "Control center",
+          "text": "Start and stop the broker, watch each bot's masked tab, revoke or stop it all."
+        },
+        {
+          "title": "Beyond sign-ins",
+          "text": "Unlock files, email codes via Proton Mail Bridge, home-device actions over ssh."
+        }
+      ],
+      "install": [
+        {
+          "label": "AppImage",
+          "code": "chmod +x Pass_Broker-x86_64.AppImage\n./Pass_Broker-x86_64.AppImage"
+        },
+        {
+          "label": "From source",
+          "code": "uv sync\ncargo build --release --manifest-path wizard/Cargo.toml\nwizard/target/release/passbroker-wizard"
+        }
+      ],
+      "installNote": "Needs the Proton Pass CLI and a desktop that shows notifications. The AppImage runs on glibc 2.35 or newer and downloads Chromium on first run.",
+      "docs": [
+        {
+          "title": "Security & threat model",
+          "path": "SECURITY.md",
+          "url": "https://github.com/asafelobotomy/pass-broker/blob/main/SECURITY.md"
+        },
+        {
+          "title": "Changelog",
+          "path": "CHANGELOG.md",
+          "url": "https://github.com/asafelobotomy/pass-broker/blob/main/CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "id": "scale-tail",
+      "repo": "scale_tail",
+      "name": "scale_tail",
+      "cat": "everyday",
+      "icon": "/assets/img/scale-tail.webp",
+      "lang": "Rust",
+      "ver": "v0.5.1",
+      "date": "2026-11-05",
+      "lic": "MIT",
+      "platforms": [
+        "Linux desktop",
+        "AppImage"
+      ],
+      "tag": "A system-tray control centre for the Tailscale CLI.",
+      "what": "scale_tail sits in your tray and drives the tailscale command for you: connect and disconnect, pick an exit node, browse peers, send files with Taildrop and switch accounts. It shows up as a StatusNotifierItem, so it works on KDE and on GNOME with AppIndicator.",
+      "features": [
+        {
+          "title": "Connect in a click",
+          "text": "Connect, disconnect, auto-connect on launch and start on login."
+        },
+        {
+          "title": "Exit nodes",
+          "text": "Pick one, clear it, or use the suggested node."
+        },
+        {
+          "title": "Peers",
+          "text": "Copy IPs and DNS names, ping, and send files with Taildrop."
+        },
+        {
+          "title": "Toggles",
+          "text": "DNS, subnet routes, LAN access, shields up, Tailscale SSH, advertise exit node."
+        },
+        {
+          "title": "Accounts",
+          "text": "Switch accounts, with a login prompt when Tailscale needs auth."
+        },
+        {
+          "title": "Updates",
+          "text": "Release checker plus zsync update info for Gear Lever and AppImageUpdate."
+        }
+      ],
+      "install": [
+        {
+          "label": "AppImage",
+          "code": "chmod +x scale_tail-*.AppImage\n./scale_tail-*.AppImage"
+        },
+        {
+          "label": "From source",
+          "code": "cargo run --release"
+        },
+        {
+          "label": "No root needed",
+          "code": "sudo tailscale set --operator=$USER"
+        }
+      ],
+      "installNote": "Needs tailscale, libnotify, xdg-utils, wl-clipboard or xclip, and zenity for sending files.",
+      "docs": [
+        {
+          "title": "Releases",
+          "path": "changelog",
+          "url": "https://github.com/asafelobotomy/scale_tail/releases"
+        }
+      ]
+    },
+    {
       "id": "oysterav",
       "repo": "oysterAV",
       "name": "oysterAV",
       "cat": "system",
       "icon": "/assets/img/oysterav.webp",
       "lang": "Python · GTK4",
-      "ver": "v0.2.2",
-      "date": "2026-07-27",
+      "ver": "v0.2.3",
+      "date": "2026-10-11",
       "lic": "GPL-3.0",
       "platforms": [
         "Linux desktop",
@@ -645,6 +1003,11 @@
           "title": "Safety model",
           "path": "docs/safety.md",
           "url": "https://github.com/asafelobotomy/buckler/blob/main/docs/safety.md"
+        },
+        {
+          "title": "bucklerStore add-ons",
+          "path": "bucklerStore",
+          "url": "https://github.com/asafelobotomy/bucklerStore"
         }
       ]
     },
