@@ -151,7 +151,7 @@ def home(data: dict) -> str:
   <div>
     <p class="eyebrow">aSafeLobotomy · Linux-first open source</p>
     <h1 style="margin-top:.9rem">I make things from my brain come <span class="safe">to life.</span></h1>
-    <p class="lede"><strong>Desktop apps, CLIs and daemons</strong> for the stuff I actually use: ROM libraries, downloads, antivirus, swap, CPU scheduling, emoji, and my TV.</p>
+    <p class="lede"><strong>Desktop apps, CLIs and daemons</strong> for the stuff I actually use: ROM libraries, downloads, antivirus, swap, CPU scheduling, AppImages, notifications, emoji, and my TV.</p>
     <div class="ctas"><a class="btn btn-primary" href="#apps">Browse the apps</a>{kofi(data['kofi'], 'Buy me a coffee', 'btn-ghost')}</div>
     <p class="facts"><span><b>{len(apps)}</b> active apps</span><span><b>{len(released)}</b> with releases</span>{shipped_fact}<span>Rust · Python · Kotlin · TS</span></p>
   </div>
